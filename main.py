@@ -4,7 +4,7 @@ import requests
 import json
 #import random
 from app import keep_alive
- 
+
 # variables
 discord_client = discord.Client()
 DB_Token = os.environ['DB-TOKEN']
