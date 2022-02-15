@@ -120,6 +120,7 @@ def next_marvel_movie_afterwards():
     return (title, days_until, release_date, type, overview, poster_url)
 
 
+#-------- Anime
 def anime_happy_gif():
     url = "https://random-stuff-api.p.rapidapi.com/anime/happy"
     querystring = {"limit": "1"}
@@ -215,6 +216,7 @@ def anime_pat_gif():
     json_data = json.loads(response.text)
     return (json_data[0]["url"])
 
+
 def anime_slap_gif():
     url = "https://random-stuff-api.p.rapidapi.com/anime/slap"
     querystring = {"limit": "1"}
@@ -230,6 +232,7 @@ def anime_slap_gif():
     json_data = json.loads(response.text)
     return (json_data[0]["url"])
 
+
 def anime_nervous_gif():
     url = "https://random-stuff-api.p.rapidapi.com/anime/nervous"
     querystring = {"limit": "1"}
@@ -244,6 +247,7 @@ def anime_nervous_gif():
                                 params=querystring)
     json_data = json.loads(response.text)
     return (json_data[0]["url"])
+
 
 def anime_run_gif():
     url = "https://random-stuff-api.p.rapidapi.com/anime/run"
@@ -277,6 +281,71 @@ def anime_cry_gif():
     return (json_data[0]["url"])
 
 
+#-------- Animals
+def dog():
+    url = "https://random-stuff-api.p.rapidapi.com/animals/dog"
+    querystring = {"limit": "1"}
+    headers = {
+        'authorization': RSA_KEY,
+        'x-rapidapi-host': A_HOST,
+        'x-rapidapi-key': A_KEY
+    }
+    response = requests.request("GET",
+                                url,
+                                headers=headers,
+                                params=querystring)
+    json_data = json.loads(response.text)
+    return (json_data[0]["url"])
+
+
+def cat():
+    url = "https://random-stuff-api.p.rapidapi.com/animals/cat"
+    querystring = {"limit": "1"}
+    headers = {
+        'authorization': RSA_KEY,
+        'x-rapidapi-host': A_HOST,
+        'x-rapidapi-key': A_KEY
+    }
+    response = requests.request("GET",
+                                url,
+                                headers=headers,
+                                params=querystring)
+    json_data = json.loads(response.text)
+    return (json_data[0]["url"])
+
+
+def wolf():
+    url = "https://random-stuff-api.p.rapidapi.com/animals/wolf"
+    querystring = {"limit": "1"}
+    headers = {
+        'authorization': RSA_KEY,
+        'x-rapidapi-host': A_HOST,
+        'x-rapidapi-key': A_KEY
+    }
+    response = requests.request("GET",
+                                url,
+                                headers=headers,
+                                params=querystring)
+    json_data = json.loads(response.text)
+    return (json_data[0]["url"])
+
+
+def fox():
+    url = "https://random-stuff-api.p.rapidapi.com/animals/fox"
+    querystring = {"limit": "1"}
+    headers = {
+        'authorization': RSA_KEY,
+        'x-rapidapi-host': A_HOST,
+        'x-rapidapi-key': A_KEY
+    }
+    response = requests.request("GET",
+                                url,
+                                headers=headers,
+                                params=querystring)
+    json_data = json.loads(response.text)
+    return (json_data[0]["url"])
+
+
 @discord_client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(discord_client))
@@ -288,6 +357,14 @@ async def on_message(message):
         return
 
     msg = message.content
+
+    if msg == '$invite':
+        await message.channel.send('https://discord.gg/QympEXu8J6')
+
+    if msg == '$tutorial':
+        await message.channel.send(
+            'https://www.youtube.com/watch?v=SPTfmiYiuok&t=1394s&ab_channel=freeCodeCamp.org'
+        )
 
     if msg == '$inspire':
         quote = get_quote()
@@ -409,6 +486,23 @@ async def on_message(message):
     if msg == '$anime-cry':
         gif_url = anime_cry_gif()
         await message.channel.send(gif_url)
+
+    #-------- Animals
+    if msg == '$dog':
+        pic_url = dog()
+        await message.channel.send(pic_url)
+
+    if msg == '$cat':
+        pic_url = cat()
+        await message.channel.send(pic_url)
+
+    if msg == '$wolf':
+        pic_url = wolf()
+        await message.channel.send(pic_url)
+
+    if msg == '$fox':
+        pic_url = fox()
+        await message.channel.send(pic_url)
 
 
 # keeps on pinging the bot and keeps it running 24/7
