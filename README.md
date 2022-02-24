@@ -5,4 +5,5 @@
 ## Technologies Used:
 <div>
     <kbd> <img src="http://ForTheBadge.com/images/badges/made-with-python.svg" width="180"/> </kbd>
+    <kbd> <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" /> </kbd>
 </div>
