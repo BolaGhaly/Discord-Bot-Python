@@ -4,5 +4,5 @@
 
 ## Technologies Used:
 <div>
-    <img src="http://ForTheBadge.com/images/badges/made-with-python.svg"/>
+    <kbd> <img src="http://ForTheBadge.com/images/badges/made-with-python.svg" width="180"/> </kbd>
 </div>
